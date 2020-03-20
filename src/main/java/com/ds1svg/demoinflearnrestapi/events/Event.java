@@ -1,5 +1,6 @@
 package com.ds1svg.demoinflearnrestapi.events;
 
+import com.ds1svg.demoinflearnrestapi.accounts.Account;
 import lombok.*;
 import org.springframework.hateoas.RepresentationModel;
 
@@ -27,6 +28,8 @@ public class Event extends RepresentationModel<Event> {
     private boolean free;
     @Enumerated(EnumType.STRING)
     private EventStatus eventStatus = EventStatus.DRAFT;
+    @ManyToOne
+    private Account manager;
 
     public void update() {
         // update free
